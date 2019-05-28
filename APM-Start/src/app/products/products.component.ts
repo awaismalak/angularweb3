@@ -10,6 +10,7 @@ export class ProductsComponent implements OnInit {
  imgWidth:number =50;
  imgHeight:number=50;
  showImage:boolean=false;
+ listFilter:string="  ";
 products: any[] = [
   {
   productId:1,
