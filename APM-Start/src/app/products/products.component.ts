@@ -46,7 +46,8 @@ products: IProduct[] = [
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log("malik awais");
   }
   showHide(): void {
     this.showImage = !this.showImage;
