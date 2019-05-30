@@ -8,7 +8,7 @@ import { IProduct} from './product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
- pageTitle:string ="Product List";
+ pageTitle:string = "Product List";
  imgWidth:number =50;
  imgHeight:number=50;
  showImage:boolean=false;
@@ -52,16 +52,6 @@ products: IProduct[] = [
 }
 ]
 
-
-
-
-
-
-
-
-
-  
-
   ngOnInit(): void {
     console.log("malik awais");
   }
@@ -72,6 +62,10 @@ constructor () {
   this.filteredProducts =this.products;
   this.listFilter="cart";
 }
+onRatingClicked(message: string ): void{
+  this.pageTitle ='Product List' +message;
+}
+
 
 performFilter(filterBy:string): IProduct[]{
   filterBy=filterBy.toLocaleLowerCase();
