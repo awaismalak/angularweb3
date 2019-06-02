@@ -8,19 +8,30 @@ import { ProductsComponent } from './products/products.component';
 import { convertToSpacePipe } from './shared/convert-to-spaces-pipe';
 import { StarComponent } from "./shared/StarComponent";
 import { ProductService } from './products/product.service';
-
+import { ProductDetailComponent } from './products/product-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     convertToSpacePipe,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'products',component:ProductsComponent},
+      {path:'products/id:',component:ProductDetailComponent},
+      {path:'welcome',component:WelcomeComponent},
+      {path:'',redirectTo:'welcome', pathMatch:'full'},
+      {path:'**',redirectTo:'welcome', pathMatch:'full'}
+    ])
   ],
   bootstrap: [AppComponent],
   providers:[ProductService]
