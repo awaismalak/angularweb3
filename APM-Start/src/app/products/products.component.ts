@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
  imgWidth:number =50;
  imgHeight:number=50;
  showImage:boolean=false;
+ errorMessage: string;
  _listFilter:string;
 
 
@@ -25,12 +26,19 @@ export class ProductsComponent implements OnInit {
 
 
 filteredProducts: IProduct[];
-products: IProduct[] = this.productService.getProducts();
+products:IProduct[] =[];
 
 
 
   ngOnInit(): void {
-    console.log("malik awais");
+
+   this.productService.getProducts().subscribe(
+     products => {
+       this.products = products;
+      this.filteredProducts=this.products;
+     },
+     error => this.errorMessage =<any> error
+   );
   }
   showHide(): void {
     this.showImage = !this.showImage;
