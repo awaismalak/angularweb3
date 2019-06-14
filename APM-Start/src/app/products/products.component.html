@@ -42,7 +42,11 @@
              [style.width.px]="imgWidth" 
              [style.height.px]="imgHeight"/>
           </td>
-          <td>{{product.productName | uppercase}}</td>
+          <td>
+            <a [routerLink]="['/products', product.productId]">
+              {{product.productName | uppercase}}
+            </a>
+          </td>
           <td>{{product.productCode | lowercase | convertToSpacePipe : '-'}}</td>
           <td>{{product.releaseDate}}</td>
           <td>{{product.price | currency:'USD' : 'symbol': '1.2-3'}}</td>
@@ -55,6 +59,7 @@
         </tr>
       </tbody>
     </table>
+    <router-outlet></router-outlet>
   </div>
 </div>
 </div>
